@@ -90,3 +90,60 @@
 // int [] newArray = CreateNewArray(x);
 // ShowArray(newArray);
 // System.Console.Write($"Sum of the elements in odd positions is {FindOddSum(newArray)}");
+
+// Задача 38: Задайте массив вещественных чисел. Найдите разницу между
+// максимальным и минимальным элементов массива.
+// [3.0 7.2 22.7 2.1 78.3] -> 76.2
+
+double[] CreateNewArray(int x)
+{
+    double[] array = new double[x];
+    for (int i = 0; i < x; i++)
+    {
+        array[i] = Math.Round(new Random().NextDouble() * 100, 1);
+    }
+    return array;
+}
+
+void ShowFloatArray(double[] array)
+{
+    System.Console.Write("Your array is [");
+    for (int i = 0; i < array.Length; i++)
+    {
+        System.Console.Write(array[i] + ", "); //нужна ли тут запятая.....
+    }
+    System.Console.WriteLine("\b\b]");
+}
+
+void MinMaxSearching(double[] array)
+{
+    int iMax = 0;
+    int iMin = 0;
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > array[iMax])
+        {
+            iMax = i;
+        }
+        else if (array[i] < array[iMin])
+        {
+            iMin = i;
+        }
+    }
+    double diff = array[iMax] - array[iMin];
+    //System.Console.WriteLine($"max {array[iMax]} min {array[iMin]} and diff is  { Math.Round(diff,1)}");
+    System.Console.WriteLine("all-righty-mighty...it's too hard, give me a moment pls...  ");
+    Thread.Sleep(1000);
+    System.Console.WriteLine("recalculating...");
+    Thread.Sleep(2000);
+    System.Console.WriteLine($"Am I the gorgeous QUANTUM COMPUTER?? I AM !!!!");
+    Thread.Sleep(3000);
+    System.Console.WriteLine($"awww..by the way, the difference between MAX-index and MIN-index elements is {Math.Round(diff,1)}");
+    // System.Console.WriteLine($"awww..by the way, the difference between MAX-index and MIN-index elements is {array[iMax] - array[iMin]} - don't mention it");
+}
+
+System.Console.WriteLine($"Input integer and positive number that will be array length: ");
+int x = Convert.ToInt32(Console.ReadLine());
+double[] newArray = CreateNewArray(x);
+ShowFloatArray(newArray);
+MinMaxSearching(newArray);
